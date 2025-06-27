@@ -5,6 +5,7 @@ from templates import TEMPLATES
 from config import MAX_EMAILS_PER_DAY
 from check_reply import has_replied
 from config import FROM_EMAIL, APP_PASSWORD
+from config import MAX_EMAILS_PER_DAY, FROM_EMAIL, APP_PASSWORD, SIGNATURE
 
 
 today = datetime.today().date()
@@ -27,13 +28,13 @@ for lead in leads:
             continue
 
         if stage < 3 and days_since >= [0, 3, 4][stage]:
-            msg = random.choice(TEMPLATES[stage + 1]).format(**lead)
+            msg = random.choice(TEMPLATES[stage + 1]).format(**lead) + "\n\n" + SIGNATURE
             send_email(email, f"Cleaning for {lead['Business']}", msg)
             record['Stage'] = str(stage + 1)
             record['LastSent'] = today.isoformat()
             sent_today += 1
     else:
-        msg = random.choice(TEMPLATES[1]).format(**lead)
+        msg = random.choice(TEMPLATES[1]).format(**lead) + "\n\n" + SIGNATURE
         send_email(email, f"Cleaning for {lead['Business']}", msg)
         log_dict[email] = {
             "Email": email,

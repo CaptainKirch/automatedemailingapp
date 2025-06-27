@@ -1,14 +1,11 @@
 TEMPLATES = {
     1: [
-        "Hi {name}, quick q: do you currently work with a cleaning team at {business}?",
-        "Hey {name}, just wondering — are you happy with your current cleaners at {business}?"
+        "Hey {business name}, quick q: do you currently work with a cleaning team? Reason I ask is because here at Penticton Janitorial we are offering 2 weeks free for a trial period to showcase our quality.Let me know if you are interested and we can set you up immediately.",
     ],
     2: [
-        "Just circling back, {name} — worth a quick chat about cleaning for {business}?",
-        "Hi again, {name}. We’re helping folks in {city} save time with vetted cleaners. Open to chat?"
+        "Just checking in. Let me know if you have any interest in the offer."
     ],
     3: [
-        "Last nudge. If this isn’t relevant, no worries. Just let me know.",
-        "Totally cool if now’s not the time — happy to close the loop."
+        "Last nudge and then i'll stop bugging you. Let me know if you have any interest in a free 2 weeks cleaning service for your office space."
     ]
 }
