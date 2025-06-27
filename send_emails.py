@@ -3,6 +3,9 @@ import random
 from utils import send_email, load_csv, save_csv
 from templates import TEMPLATES
 from config import MAX_EMAILS_PER_DAY
+from check_reply import has_replied
+from config import FROM_EMAIL, APP_PASSWORD
+
 
 today = datetime.today().date()
 leads = load_csv("leads.csv")
@@ -18,6 +21,10 @@ for lead in leads:
         stage = int(record['Stage'])
         last_sent = datetime.strptime(record['LastSent'], "%Y-%m-%d").date()
         days_since = (today - last_sent).days
+
+        if has_replied(email, last_sent, FROM_EMAIL, APP_PASSWORD):
+            print(f"⏸️ Skipping {email} — replied already.")
+            continue
 
         if stage < 3 and days_since >= [0, 3, 4][stage]:
             msg = random.choice(TEMPLATES[stage + 1]).format(**lead)
@@ -40,3 +47,4 @@ for lead in leads:
 
 save_csv("email_log.csv", list(log_dict.values()), fieldnames=["Email", "Stage", "LastSent"])
 print(f"✅ Sent {sent_today} emails today.")
+
