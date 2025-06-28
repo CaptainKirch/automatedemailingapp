@@ -8,6 +8,8 @@ APP_PASSWORD = os.getenv("APP_PASSWORD")
 SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", "465"))
 MAX_EMAILS_PER_DAY = int(os.getenv("MAX_EMAILS_PER_DAY", "15"))
+MAX_EMAILS_PER_RUN = int(os.getenv("MAX_EMAILS_PER_RUN", 5))
+
 
 SIGNATURE = """
 Best,  
