@@ -13,8 +13,7 @@ SIGNATURE = """
 Best,  
 Liam Kircher  
 Penticton Janitorial
-kircherliam@gmail.com 
-(250) 123-4567
+kircherliam@gmail.com
 
 If this isn't relevant, feel free to reply with "unsubscribe" and I won’t follow up.
 """.strip()
