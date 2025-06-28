@@ -1,4 +1,5 @@
-from datetime import datetime
+from datetime import datetime, timezone
+
 import random
 from utils import send_email, load_csv, save_csv
 from templates import TEMPLATES
@@ -11,8 +12,9 @@ SUBJECTS = {
     2: "Thoughts?",
     3: "I'll stop bugging you now."
 }
-from datetime import datetime, timezone
+
 now = datetime.now(timezone.utc)
+print(f"🕒 Current UTC hour: {now.hour}")
 
 if not (15 <= now.hour < 18):  # 8am–10am PT in UTC
     print("⏸️ Current time outside sending window. Exiting.")
