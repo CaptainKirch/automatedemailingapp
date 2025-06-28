@@ -13,7 +13,7 @@ SUBJECTS = {
 }
 
 now = datetime.now(timezone.utc)
-print(f"🕒 Current UTC hour: {now.hour}")
+print(f"🕒 Current UTC hour: {now.hour}") # added UTC hour print debug
 
 if not (15 <= now.hour < 18):  # 8am–10am PT in UTC
     print("⏸️ Current time outside sending window. Exiting.")
