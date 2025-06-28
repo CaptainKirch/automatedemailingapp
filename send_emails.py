@@ -1,5 +1,4 @@
 from datetime import datetime, timezone
-
 import random
 from utils import send_email, load_csv, save_csv
 from templates import TEMPLATES
