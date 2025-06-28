@@ -11,8 +11,10 @@ SUBJECTS = {
     2: "Thoughts?",
     3: "I'll stop bugging you now."
 }
-now = datetime.now()
-if not (8 <= now.hour < 17):
+from datetime import datetime, timezone
+now = datetime.now(timezone.utc)
+
+if not (15 <= now.hour < 18):  # 8am–10am PT in UTC
     print("⏸️ Current time outside sending window. Exiting.")
     exit()
 
