@@ -6,7 +6,7 @@ def has_replied(lead_email, since_date, gmail_user, gmail_pass):
 
     mail = imaplib.IMAP4_SSL("imap.gmail.com")
     mail.login(gmail_user, gmail_pass)
-    mail.select("inbox")
+    mail.select('"[Gmail]/All Mail"')
 
     # Search for replies FROM lead TO your address AFTER the send date
     result, data = mail.search(
